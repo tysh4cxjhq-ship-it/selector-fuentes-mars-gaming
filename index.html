@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Qué fuente necesito? · Mars Gaming</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Exo+2:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0c0c0e;
+  --surface:#141416;
+  --card:#1b1c1f;
+  --card-hi:#212226;
+  --border:rgba(255,255,255,0.07);
+  --border-hi:rgba(255,255,255,0.14);
+  --text:#f2f3f5;
+  --muted:#8b929e;
+  --faint:#5b616c;
+  --mars:#e20e17;
+  --mars-hot:#ff2a33;
+  --gold:#d4a017;
+  --gold-soft:#f0c44d;
+  --green:#34d399;
+  --red:#f87171;
+  --silver:#c8cdd6;
+  --bronze:#c77b30;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --ease-int:cubic-bezier(0.25,0.1,0.25,1);
+  --sp-xs:4px; --sp-sm:8px; --sp-md:16px; --sp-lg:24px; --sp-xl:40px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(226,14,23,0.13), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 10%, rgba(212,160,23,0.05), transparent 55%);
+  background-attachment:fixed;
+  color:var(--text);
+  font-family:'Exo 2',sans-serif;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  padding:0 var(--sp-md) 64px;
+}
+.wrap{max-width:1080px;margin:0 auto}
+
+/* ---------- header ---------- */
+header{padding:42px 0 28px;text-align:center}
+.brandbar{display:flex;justify-content:center;align-items:center;margin-bottom:22px}
+.brandbar a{display:inline-flex;align-items:center;line-height:0;transition:opacity .2s var(--ease-int)}
+.brandbar a:hover{opacity:.7}
+.brandbar .mlogo{height:24px;width:auto;display:block}
+.site-foot{max-width:1080px;margin:56px auto 0;padding:24px var(--sp-md) 0;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.site-foot .fl{display:flex;align-items:center;gap:14px}
+.site-foot .mlogo{height:18px;width:auto;display:block;opacity:.8}
+.site-foot .fnote{font-size:12px;color:var(--faint);max-width:560px;line-height:1.5}
+.site-foot a.shop{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;letter-spacing:.04em;color:var(--mars);text-decoration:none;white-space:nowrap}
+.site-foot a.shop:hover{color:var(--mars-hot)}
+.kicker{
+  font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--mars);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.kicker::before,.kicker::after{content:"";height:1px;width:26px;background:linear-gradient(90deg,transparent,var(--mars))}
+.kicker::after{background:linear-gradient(90deg,var(--mars),transparent)}
+h1{
+  font-family:'Rajdhani',sans-serif;font-weight:700;
+  font-size:clamp(30px,6vw,52px);line-height:1.02;letter-spacing:-0.01em;
+  margin:14px 0 10px;text-transform:uppercase;
+}
+h1 b{color:var(--mars)}
+.sub{color:var(--muted);font-size:clamp(15px,2.4vw,18px);max-width:560px;margin:0 auto}
+.stats{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.stat{font-family:'Rajdhani',sans-serif}
+.stat .n{font-size:26px;font-weight:700;color:var(--text);line-height:1}
+.stat .l{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-top:3px}
+
+/* ---------- panel ---------- */
+.panel{
+  background:linear-gradient(180deg,var(--surface),rgba(20,20,22,0.6));
+  border:1px solid var(--border);border-radius:16px;
+  padding:var(--sp-lg);margin-top:var(--sp-xl);
+  box-shadow:0 1px 0 rgba(255,255,255,0.04) inset,0 24px 60px rgba(0,0,0,0.4);
+}
+.panel-head{display:flex;align-items:center;gap:12px;margin-bottom:var(--sp-lg)}
+.panel-head .badge-step{
+  font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;
+  width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+  background:var(--mars);color:#fff;flex:none;
+}
+.panel-head h2{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:20px;letter-spacing:.01em;text-transform:uppercase}
+.panel-head p{color:var(--muted);font-size:13px}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-md)}
+.field label{
+  display:block;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;
+}
+.select-wrap{position:relative}
+.select-wrap::after{
+  content:"";position:absolute;right:14px;top:50%;width:8px;height:8px;
+  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
+  transform:translateY(-65%) rotate(45deg);pointer-events:none;transition:border-color .2s;
+}
+select{
+  width:100%;appearance:none;-webkit-appearance:none;
+  background:var(--card);color:var(--text);
+  border:1px solid var(--border);border-radius:10px;
+  padding:13px 38px 13px 14px;font-family:'Exo 2',sans-serif;font-size:15px;font-weight:500;
+  cursor:pointer;transition:border-color .2s var(--ease-int),box-shadow .2s var(--ease-int);
+}
+select:hover{border-color:var(--border-hi)}
+select:focus{outline:none;border-color:var(--mars);box-shadow:0 0 0 3px rgba(226,14,23,0.18)}
+.select-wrap:hover::after{border-color:var(--text)}
+optgroup{font-family:'Rajdhani',sans-serif;font-weight:700;color:var(--gold-soft);background:#0e0e10}
+option{color:var(--text);background:#16171a;font-weight:400}
+
+/* advanced */
+.adv-toggle{
+  margin-top:var(--sp-md);display:inline-flex;align-items:center;gap:9px;cursor:pointer;
+  font-family:'Rajdhani',sans-serif;font-weight:600;font-size:13px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);background:none;border:none;padding:6px 0;
+  transition:color .2s;
+}
+.adv-toggle:hover{color:var(--text)}
+.adv-toggle .chev{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .25s var(--ease-out)}
+.adv-toggle.open .chev{transform:rotate(-135deg)}
+.adv{max-height:0;overflow:hidden;transition:max-height .35s var(--ease-out),opacity .3s;opacity:0}
+.adv.open{max-height:520px;opacity:1;margin-top:var(--sp-md)}
+.adv-inner{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-md);padding-top:4px}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px}
+.chk{
+  display:inline-flex;align-items:center;gap:9px;cursor:pointer;user-select:none;
+  background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:11px 14px;font-size:14px;transition:border-color .2s,background .2s;width:100%;
+}
+.chk:hover{border-color:var(--border-hi)}
+.chk input{position:absolute;opacity:0;width:0;height:0}
+.chk .box{width:18px;height:18px;border-radius:5px;border:2px solid var(--faint);flex:none;display:grid;place-items:center;transition:all .18s var(--ease-int)}
+.chk .box::after{content:"";width:9px;height:9px;border-radius:2px;background:var(--mars);transform:scale(0);transition:transform .18s var(--ease-out)}
+.chk input:checked ~ .box{border-color:var(--mars)}
+.chk input:checked ~ .box::after{transform:scale(1)}
+.chk.active{border-color:var(--border-hi);background:var(--card-hi)}
+
+.cta-calc{
+  margin-top:var(--sp-lg);width:100%;border:none;cursor:pointer;
+  background:linear-gradient(180deg,var(--mars-hot),var(--mars));
+  color:#fff;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:17px;
+  letter-spacing:.08em;text-transform:uppercase;padding:16px;border-radius:11px;
+  box-shadow:0 8px 24px rgba(226,14,23,0.32);
+  transition:transform .15s var(--ease-int),box-shadow .2s,filter .2s;
+}
+.cta-calc:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(226,14,23,0.42);filter:brightness(1.06)}
+.cta-calc:active{transform:translateY(0)}
+
+/* ---------- result ---------- */
+#result{margin-top:var(--sp-xl);display:none}
+#result.show{display:block}
+.result-head{text-align:center;margin-bottom:var(--sp-lg)}
+.result-head .eyebrow{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft)}
+.result-head h2{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:clamp(24px,5vw,36px);text-transform:uppercase;margin-top:6px}
+.result-head h2 b{color:var(--mars)}
+
+/* gauge */
+.gauge-card{
+  background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:var(--sp-lg);margin-bottom:var(--sp-lg);
+}
+.gauge-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.gauge-top .draw .v{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
+.gauge-top .draw .v small{font-size:16px;color:var(--muted);font-weight:600}
+.gauge-top .draw .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.gauge-top .reco{text-align:right}
+.gauge-top .reco .v{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:34px;line-height:1;color:var(--mars);font-variant-numeric:tabular-nums}
+.gauge-top .reco .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.bar{position:relative;height:16px;border-radius:8px;background:#0c0c0e;border:1px solid var(--border);overflow:hidden}
+.bar .ideal{position:absolute;top:0;bottom:0;background:rgba(52,211,153,0.13);border-left:1px dashed rgba(52,211,153,.4);border-right:1px dashed rgba(52,211,153,.4)}
+.bar .fill{position:absolute;top:0;bottom:0;left:0;width:0;border-radius:7px;background:linear-gradient(90deg,var(--mars),var(--mars-hot));transition:width .9s var(--ease-out)}
+.bar-legend{display:flex;justify-content:space-between;font-size:11px;color:var(--faint);margin-top:7px;letter-spacing:.04em}
+.bar-legend .ok{color:var(--green)}
+
+/* loss aversion line */
+.risk{
+  display:flex;align-items:center;gap:12px;background:rgba(226,14,23,0.07);
+  border:1px solid rgba(226,14,23,0.25);border-radius:11px;padding:13px 16px;margin-bottom:var(--sp-lg);
+  font-size:14px;color:#f3d3d4;
+}
+.risk svg{flex:none}
+.risk b{color:#fff}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-md);align-items:stretch}
+.pcard{
+  position:relative;background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:22px 20px 20px;display:flex;flex-direction:column;
+  transition:transform .22s var(--ease-int),border-color .22s,box-shadow .22s;
+}
+.pcard:hover{transform:translateY(-3px);border-color:var(--border-hi);box-shadow:0 14px 34px rgba(0,0,0,.4)}
+.pcard.hero{border-color:var(--mars);background:linear-gradient(180deg,rgba(226,14,23,0.07),var(--card) 55%);box-shadow:0 0 0 1px rgba(226,14,23,.3),0 18px 40px rgba(226,14,23,.12)}
+.pcard .rank{font-family:'Rajdhani',sans-serif;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.pcard.hero .rank{color:var(--mars)}
+.ribbon{
+  position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  background:var(--mars);color:#fff;font-family:'Rajdhani',sans-serif;font-weight:700;
+  font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:20px;
+  white-space:nowrap;box-shadow:0 6px 16px rgba(226,14,23,.4);
+}
+.bestseller{
+  position:absolute;top:14px;right:14px;background:rgba(212,160,23,0.15);color:var(--gold-soft);
+  font-family:'Rajdhani',sans-serif;font-weight:700;font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;padding:4px 8px;border-radius:6px;border:1px solid rgba(212,160,23,.3);
+}
+.pcard .model{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:21px;margin:10px 0 2px;letter-spacing:.01em}
+.pcard .watt{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:46px;line-height:.95;font-variant-numeric:tabular-nums}
+.pcard .watt small{font-size:18px;color:var(--muted)}
+.tier{
+  display:inline-flex;align-items:center;gap:7px;align-self:flex-start;margin-top:12px;
+  font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:.06em;
+  text-transform:uppercase;padding:5px 11px;border-radius:7px;
+}
+.tier .dot{width:8px;height:8px;border-radius:50%}
+.tier.gold{background:rgba(212,160,23,.13);color:var(--gold-soft)} .tier.gold .dot{background:var(--gold)}
+.tier.platinum{background:rgba(200,205,214,.13);color:#e7eaf0} .tier.platinum .dot{background:var(--silver)}
+.tier.silver{background:rgba(200,205,214,.1);color:var(--silver)} .tier.silver .dot{background:var(--silver)}
+.tier.bronze{background:rgba(199,123,48,.13);color:#e0a06b} .tier.bronze .dot{background:var(--bronze)}
+.specs{list-style:none;margin:16px 0 0;border-top:1px solid var(--border);padding-top:14px;display:grid;gap:9px}
+.specs li{display:flex;align-items:flex-start;gap:9px;font-size:13.5px;color:var(--muted)}
+.specs li b{color:var(--text);font-weight:600}
+.specs li svg{flex:none;margin-top:2px}
+.tag-12v{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--green);background:rgba(52,211,153,.1);padding:3px 8px;border-radius:6px;margin-top:10px;align-self:flex-start}
+.tag-adapter{font-size:11px;color:var(--faint);margin-top:10px}
+.colors{display:flex;gap:6px;margin-top:14px}
+.colors .sw{width:16px;height:16px;border-radius:50%;border:1px solid var(--border-hi)}
+.pcard .buy{
+  margin-top:auto;padding-top:18px;
+}
+.pcard .buy a{
+  display:block;text-align:center;text-decoration:none;
+  font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;
+  padding:12px;border-radius:9px;border:1px solid var(--border-hi);color:var(--text);
+  transition:all .18s var(--ease-int);
+}
+.pcard .buy a:hover{border-color:var(--mars);color:#fff;background:rgba(226,14,23,.12)}
+.pcard.hero .buy a{background:linear-gradient(180deg,var(--mars-hot),var(--mars));border-color:transparent;box-shadow:0 6px 18px rgba(226,14,23,.3)}
+.pcard.hero .buy a:hover{filter:brightness(1.08);background:linear-gradient(180deg,var(--mars-hot),var(--mars))}
+
+/* aesthetic + crosssell */
+.extra-block{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:var(--sp-lg);margin-top:var(--sp-lg)}
+.extra-block h3{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:.04em;display:flex;align-items:center;gap:10px}
+.extra-block h3 .ic{color:var(--mars)}
+.extra-block p{color:var(--muted);font-size:13.5px;margin-top:4px}
+.aest-models{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.aest-pill{display:inline-flex;align-items:center;gap:9px;background:var(--card-hi);border:1px solid var(--border);border-radius:10px;padding:9px 13px;font-size:13.5px}
+.aest-pill .sw{width:14px;height:14px;border-radius:50%;border:1px solid var(--border-hi)}
+.aest-pill b{font-family:'Rajdhani',sans-serif;font-weight:700}
+.cross{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.cross .ci{background:var(--card-hi);border:1px solid var(--border);border-radius:11px;padding:14px;transition:border-color .2s,transform .2s}
+.cross .ci:hover{border-color:var(--border-hi);transform:translateY(-2px)}
+.cross .ci .t{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.03em}
+.cross .ci .d{font-size:12px;color:var(--muted);margin-top:3px}
+
+/* nomenclature */
+.nomen{margin-top:var(--sp-lg);background:rgba(20,20,22,.5);border:1px dashed var(--border-hi);border-radius:12px;padding:18px var(--sp-lg)}
+.nomen summary{cursor:pointer;list-style:none;font-family:'Rajdhani',sans-serif;font-weight:600;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:9px}
+.nomen summary::-webkit-details-marker{display:none}
+.nomen summary .chev{width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .25s}
+.nomen[open] summary .chev{transform:rotate(-135deg)}
+.nomen[open] summary{color:var(--text)}
+.decode{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.decode .seg{flex:1;min-width:120px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:13px}
+.decode .seg .code{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:22px;color:var(--mars)}
+.decode .seg .lbl{font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+.decode .seg .desc{font-size:12.5px;color:var(--muted);margin-top:6px}
+
+footer{text-align:center;margin-top:48px;color:var(--faint);font-size:12px;line-height:1.7}
+footer b{color:var(--muted)}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(18px);animation:rise .6s var(--ease-out) forwards}
+.reveal:nth-child(1){animation-delay:.04s}.reveal:nth-child(2){animation-delay:.12s}.reveal:nth-child(3){animation-delay:.2s}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:760px){
+  .cards{grid-template-columns:1fr}
+  .grid2,.adv-inner{grid-template-columns:1fr}
+  .cross{grid-template-columns:1fr 1fr}
+  .pcard.hero{order:-1}
+  header{padding:34px 0 18px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brandbar">
+      <a href="https://marsgaming.eu/es/" target="_blank" rel="noopener" aria-label="Mars Gaming">
+        <svg class="mlogo" role="img" aria-label="Mars Gaming" viewBox="0 0 272 27" xmlns="http://www.w3.org/2000/svg" fill="#f0f0f0">
+          <polygon points="26.188,0.413 23.097,0.413 13.163,19.933 3.131,0.493 3.09,0.413 0,0.413 0,26.286 3.635,26.286 3.635,9.927 12.181,26.206 12.223,26.286 14.002,26.286 22.555,9.821 22.587,26.139 22.587,26.286 26.223,26.286 26.188,0.56"/>
+          <polygon points="44.807,0.413 41.774,0.413 31.882,26.086 31.803,26.286 35.704,26.286 43.281,6.919 50.806,26.193 50.843,26.286 54.812,26.286 44.843,0.507"/>
+          <path d="M75.522,16.23c3.377-1.324,5.021-3.869,5.021-7.776c0-5.336-3.453-8.041-10.266-8.041h-9.648v25.872h3.775v-9.411h5.875c0.485,0,0.963-0.031,1.448-0.067l5.209,9.401l0.043,0.076h4.13L75.522,16.23z M76.813,8.454c0,3.302-1.862,4.587-6.64,4.587h-5.769V3.887h5.769C74.951,3.887,76.813,5.167,76.813,8.454z"/>
+          <path d="M96.472,11.685c-3.299-0.838-6.148-1.562-6.148-4.255c0-2.448,2.157-3.909,5.769-3.909c2.279,0,4.623,0.731,6.601,2.058l0.152,0.102l1.257-3.2l-0.092-0.067c-1.983-1.435-4.943-2.293-7.918-2.293c-6.985,0-9.474,3.851-9.474,7.455c0,5.361,4.591,6.53,8.641,7.562c3.282,0.835,6.116,1.557,6.116,4.24c0,2.416-2.141,3.8-5.873,3.8c-2.953,0-6.069-1.146-7.938-2.919l-0.149-0.142l-1.417,3.131l0.075,0.072c2.028,1.978,5.73,3.257,9.43,3.257c3.042,0,5.54-0.762,7.226-2.204c1.517-1.299,2.352-3.15,2.352-5.214C105.08,13.873,100.507,12.711,96.472,11.685z"/>
+          <rect x="207.693" y="0.413" width="3.774" height="25.872"/>
+          <polygon points="238.274,19.202 223.921,0.471 223.876,0.413 220.803,0.413 220.803,26.286 224.577,26.286 224.577,7.498 238.93,26.228 238.975,26.286 242.049,26.286 242.049,0.413 238.274,0.413"/>
+          <polygon points="198.322,0.413 195.231,0.413 185.295,19.933 175.265,0.493 175.224,0.413 172.133,0.413 172.133,26.286 175.768,26.286 175.768,9.927 184.315,26.206 184.356,26.286 186.135,26.286 194.687,9.821 194.72,26.139 194.72,26.286 198.356,26.286 198.322,0.56"/>
+          <polygon points="156.587,0.413 153.555,0.413 143.586,26.286 147.484,26.286 155.062,6.919 162.586,26.193 162.623,26.286 166.592,26.286 156.623,0.507"/>
+          <path d="M129.929,16.271h6.34v0.006c-0.175,1.781-1.023,3.334-2.521,4.612c-1.499,1.27-3.211,1.913-5.091,1.913c-2.208,0-4.286-0.86-6.178-2.555c-2.023-1.825-3.048-4.181-3.048-7.002c0-2.733,0.92-5.039,2.735-6.854c1.816-1.847,4.093-2.783,6.77-2.783c2.936,0,5.469,1.357,7.527,4.034l0.1,0.13l2.726-2.612l-0.093-0.106c-1.556-1.758-3.158-3.051-4.762-3.843c-1.712-0.808-3.584-1.217-5.563-1.217c-3.682,0-6.85,1.302-9.415,3.868c-2.567,2.556-3.869,5.713-3.869,9.383c0,3.593,1.279,6.718,3.803,9.285c2.524,2.556,5.598,3.852,9.136,3.852c3.626,0,6.655-1.34,9.005-3.984c1.038-1.18,1.785-2.465,2.221-3.82c0.448-1.462,0.676-3.167,0.676-5.069v-0.835h-10.498V16.271z"/>
+          <path d="M261.503,13.002v3.597h6.34v0.006c-0.176,1.781-1.024,3.334-2.521,4.612c-1.501,1.27-3.214,1.913-5.092,1.913c-2.208,0-4.286-0.86-6.177-2.555c-2.023-1.826-3.049-4.182-3.049-7.002c0-2.733,0.92-5.039,2.735-6.854c1.815-1.847,4.092-2.783,6.771-2.783c2.935,0,5.468,1.357,7.526,4.034l0.1,0.13l2.726-2.612l-0.093-0.106c-1.553-1.757-3.154-3.05-4.762-3.843c-1.712-0.808-3.583-1.217-5.562-1.217c-3.681,0-6.849,1.301-9.416,3.867c-2.567,2.557-3.869,5.715-3.869,9.384c0,3.593,1.28,6.717,3.804,9.285c2.522,2.556,5.596,3.851,9.136,3.851c3.625,0,6.655-1.34,9.005-3.983c1.038-1.18,1.785-2.465,2.221-3.821c0.448-1.462,0.675-3.167,0.675-5.068v-0.835H261.503z"/>
+        </svg>
+      </a>
+    </div>
+    <span class="kicker">Selector oficial de fuentes</span>
+    <h1>¿Qué fuente <b>necesito</b>?</h1>
+    <p class="sub">Dinos tu tarjeta gráfica y tu procesador. Te decimos la fuente exacta — sin tecnicismos, sin riesgos para tu equipo.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">27</div><div class="l">Modelos</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">Familias</div></div>
+      <div class="stat"><div class="n">10</div><div class="l">Años garantía</div></div>
+    </div>
+  </header>
+
+  <!-- FORM -->
+  <section class="panel">
+    <div class="panel-head">
+      <span class="badge-step">1</span>
+      <div>
+        <h2>Tu equipo</h2>
+        <p>Solo dos datos. El resto lo calculamos nosotros.</p>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <label for="gpu">Tarjeta gráfica</label>
+        <div class="select-wrap">
+          <select id="gpu"></select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="cpu">Procesador</label>
+        <div class="select-wrap">
+          <select id="cpu">
+            <option value="65">Básico / oficina · Intel i3 · Ryzen 3 · APU</option>
+            <option value="120" selected>Gama media · Intel i5 · Ryzen 5</option>
+            <option value="150">Gama alta · Intel i7 · Ryzen 7</option>
+            <option value="230">Entusiasta · Intel i9 · Ryzen 9</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <button class="adv-toggle" id="advBtn"><span class="chev"></span>Opciones avanzadas (opcional)</button>
+    <div class="adv" id="advBox">
+      <div class="adv-inner">
+        <div class="field">
+          <label>Discos extra (HDD/SSD)</label>
+          <div class="select-wrap">
+            <select id="disks">
+              <option value="0">Ninguno extra</option>
+              <option value="1">1 disco</option>
+              <option value="2">2 discos</option>
+              <option value="3">3 o más</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Extras de tu montaje</label>
+          <div class="chip-row">
+            <label class="chk"><input type="checkbox" id="rgb"><span class="box"></span>Iluminación RGB intensa</label>
+            <label class="chk"><input type="checkbox" id="aio"><span class="box"></span>Refrigeración líquida (AIO)</label>
+            <label class="chk"><input type="checkbox" id="oc"><span class="box"></span>Overclock CPU / GPU</label>
+            <label class="chk"><input type="checkbox" id="aesthetic"><span class="box"></span>Montaje a la vista (cristal templado)</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="cta-calc" id="calcBtn">Ver mi fuente →</button>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result">
+    <div class="result-head">
+      <div class="eyebrow">Tu recomendación</div>
+      <h2 id="resTitle">La fuente <b>ideal</b> para tu equipo</h2>
+    </div>
+
+    <div class="gauge-card reveal">
+      <div class="gauge-top">
+        <div class="draw">
+          <div class="v" id="drawV">—<small> W</small></div>
+          <div class="lbl">Consumo estimado de tu equipo</div>
+        </div>
+        <div class="reco">
+          <div class="v" id="recoV">—<small> W</small></div>
+          <div class="lbl">Potencia recomendada</div>
+        </div>
+      </div>
+      <div class="bar">
+        <div class="ideal" id="idealZone"></div>
+        <div class="fill" id="barFill"></div>
+      </div>
+      <div class="bar-legend">
+        <span>0 W</span>
+        <span class="ok">Zona ideal de carga (50–70 %)</span>
+        <span id="barMax">— W</span>
+      </div>
+    </div>
+
+    <div class="risk reveal" id="riskLine"></div>
+
+    <div class="cards" id="cards"></div>
+
+    <div class="extra-block reveal" id="aestBlock" style="display:none">
+      <h3><span class="ic">◆</span> Para que tu fuente también luzca</h3>
+      <p>Has marcado montaje a la vista. Estas opciones priorizan el diseño sin renunciar a specs.</p>
+      <div class="aest-models">
+        <span class="aest-pill"><span class="sw" style="background:#111"></span><b>MPB750S</b> · ARGB sincronizable</span>
+        <span class="aest-pill"><span class="sw" style="background:#f4f4f5"></span><b>MPZE750</b> · Blanco total · Silver · 10 años</span>
+        <span class="aest-pill"><span class="sw" style="background:linear-gradient(135deg,#e20e17 50%,#111 50%)"></span><b>MPVU750</b> · Rojo / negro-rojo · Silver</span>
+      </div>
+    </div>
+
+    <div class="extra-block reveal">
+      <h3><span class="ic">+</span> Completa tu montaje</h3>
+      <p>Quien compra fuente está montando o renovando PC. Aprovecha para dejarlo redondo.</p>
+      <div class="cross">
+        <div class="ci"><div class="t">Caja</div><div class="d">Buena gestión de cables para lucir la fuente modular.</div></div>
+        <div class="ci"><div class="t">Refrigeración</div><div class="d">Equipo potente = más calor. Aire o líquida a juego.</div></div>
+        <div class="ci"><div class="t">A juego en color</div><div class="d">Fuente blanca → caja y periféricos blancos.</div></div>
+        <div class="ci"><div class="t">Protección</div><div class="d">Regletas o SAI para blindar la inversión que acabas de hacer.</div></div>
+      </div>
+    </div>
+
+    <details class="nomen reveal">
+      <summary><span class="chev"></span>¿Qué significan las letras del nombre?</summary>
+      <div class="decode">
+        <div class="seg"><div class="code">MPB</div><div class="lbl">Familia</div><div class="desc">Serie del modelo dentro de la gama.</div></div>
+        <div class="seg"><div class="code">750</div><div class="lbl">Potencia</div><div class="desc">Vatios que entrega la fuente.</div></div>
+        <div class="seg"><div class="code">PSI</div><div class="lbl">Gama</div><div class="desc">PSI = Gold · SI = Bronze · III = entrada.</div></div>
+        <div class="seg"><div class="code">M / W</div><div class="lbl">Modular / Color</div><div class="desc">M = cables desmontables · W = acabado blanco.</div></div>
+      </div>
+    </details>
+  </section>
+
+  <footer class="site-foot">
+    <div class="fl">
+      <a href="https://marsgaming.eu/es/" target="_blank" rel="noopener" aria-label="Mars Gaming">
+        <svg class="mlogo" role="img" aria-label="Mars Gaming" viewBox="0 0 272 27" xmlns="http://www.w3.org/2000/svg" fill="#f0f0f0">
+          <polygon points="26.188,0.413 23.097,0.413 13.163,19.933 3.131,0.493 3.09,0.413 0,0.413 0,26.286 3.635,26.286 3.635,9.927 12.181,26.206 12.223,26.286 14.002,26.286 22.555,9.821 22.587,26.139 22.587,26.286 26.223,26.286 26.188,0.56"/>
+          <polygon points="44.807,0.413 41.774,0.413 31.882,26.086 31.803,26.286 35.704,26.286 43.281,6.919 50.806,26.193 50.843,26.286 54.812,26.286 44.843,0.507"/>
+          <path d="M75.522,16.23c3.377-1.324,5.021-3.869,5.021-7.776c0-5.336-3.453-8.041-10.266-8.041h-9.648v25.872h3.775v-9.411h5.875c0.485,0,0.963-0.031,1.448-0.067l5.209,9.401l0.043,0.076h4.13L75.522,16.23z M76.813,8.454c0,3.302-1.862,4.587-6.64,4.587h-5.769V3.887h5.769C74.951,3.887,76.813,5.167,76.813,8.454z"/>
+          <path d="M96.472,11.685c-3.299-0.838-6.148-1.562-6.148-4.255c0-2.448,2.157-3.909,5.769-3.909c2.279,0,4.623,0.731,6.601,2.058l0.152,0.102l1.257-3.2l-0.092-0.067c-1.983-1.435-4.943-2.293-7.918-2.293c-6.985,0-9.474,3.851-9.474,7.455c0,5.361,4.591,6.53,8.641,7.562c3.282,0.835,6.116,1.557,6.116,4.24c0,2.416-2.141,3.8-5.873,3.8c-2.953,0-6.069-1.146-7.938-2.919l-0.149-0.142l-1.417,3.131l0.075,0.072c2.028,1.978,5.73,3.257,9.43,3.257c3.042,0,5.54-0.762,7.226-2.204c1.517-1.299,2.352-3.15,2.352-5.214C105.08,13.873,100.507,12.711,96.472,11.685z"/>
+          <rect x="207.693" y="0.413" width="3.774" height="25.872"/>
+          <polygon points="238.274,19.202 223.921,0.471 223.876,0.413 220.803,0.413 220.803,26.286 224.577,26.286 224.577,7.498 238.93,26.228 238.975,26.286 242.049,26.286 242.049,0.413 238.274,0.413"/>
+          <polygon points="198.322,0.413 195.231,0.413 185.295,19.933 175.265,0.493 175.224,0.413 172.133,0.413 172.133,26.286 175.768,26.286 175.768,9.927 184.315,26.206 184.356,26.286 186.135,26.286 194.687,9.821 194.72,26.139 194.72,26.286 198.356,26.286 198.322,0.56"/>
+          <polygon points="156.587,0.413 153.555,0.413 143.586,26.286 147.484,26.286 155.062,6.919 162.586,26.193 162.623,26.286 166.592,26.286 156.623,0.507"/>
+          <path d="M129.929,16.271h6.34v0.006c-0.175,1.781-1.023,3.334-2.521,4.612c-1.499,1.27-3.211,1.913-5.091,1.913c-2.208,0-4.286-0.86-6.178-2.555c-2.023-1.825-3.048-4.181-3.048-7.002c0-2.733,0.92-5.039,2.735-6.854c1.816-1.847,4.093-2.783,6.77-2.783c2.936,0,5.469,1.357,7.527,4.034l0.1,0.13l2.726-2.612l-0.093-0.106c-1.556-1.758-3.158-3.051-4.762-3.843c-1.712-0.808-3.584-1.217-5.563-1.217c-3.682,0-6.85,1.302-9.415,3.868c-2.567,2.556-3.869,5.713-3.869,9.383c0,3.593,1.279,6.718,3.803,9.285c2.524,2.556,5.598,3.852,9.136,3.852c3.626,0,6.655-1.34,9.005-3.984c1.038-1.18,1.785-2.465,2.221-3.82c0.448-1.462,0.676-3.167,0.676-5.069v-0.835h-10.498V16.271z"/>
+          <path d="M261.503,13.002v3.597h6.34v0.006c-0.176,1.781-1.024,3.334-2.521,4.612c-1.501,1.27-3.214,1.913-5.092,1.913c-2.208,0-4.286-0.86-6.177-2.555c-2.023-1.826-3.049-4.182-3.049-7.002c0-2.733,0.92-5.039,2.735-6.854c1.815-1.847,4.092-2.783,6.771-2.783c2.935,0,5.468,1.357,7.526,4.034l0.1,0.13l2.726-2.612l-0.093-0.106c-1.553-1.757-3.154-3.05-4.762-3.843c-1.712-0.808-3.583-1.217-5.562-1.217c-3.681,0-6.849,1.301-9.416,3.867c-2.567,2.557-3.869,5.715-3.869,9.384c0,3.593,1.28,6.717,3.804,9.285c2.522,2.556,5.596,3.851,9.136,3.851c3.625,0,6.655-1.34,9.005-3.983c1.038-1.18,1.785-2.465,2.221-3.821c0.448-1.462,0.675-3.167,0.675-5.068v-0.835H261.503z"/>
+        </svg>
+      </a>
+      <span class="fnote">Guía orientativa. Aplicamos un margen de seguridad sobre el consumo estimado de tu equipo; el consumo real depende de tu configuración exacta. Gama Mars Gaming y consumos de GPU verificados · jun 2026.</span>
+    </div>
+    <a class="shop" href="https://marsgaming.eu/es/fuentes/" target="_blank" rel="noopener">Ver toda la gama →</a>
+  </footer>
+
+</div>
+
+<script>
+/* ---------------- DATOS ---------------- */
+/* GPU: board power (W) y PSU mínima del fabricante (W). needs12v = conector 12V-2x6 nativo recomendado. */
+var GPUS = [
+  {g:"Sin gráfica dedicada", items:[
+    {n:"Gráfica integrada / sin GPU dedicada", w:0, min:0, v12:false, val:0}
+  ]},
+  {g:"NVIDIA · RTX 50", items:[
+    {n:"RTX 5090", w:575, min:1000, v12:true, val:3},
+    {n:"RTX 5080", w:360, min:850, v12:true, val:3},
+    {n:"RTX 5070 Ti", w:300, min:750, v12:true, val:2},
+    {n:"RTX 5070", w:250, min:650, v12:false, val:2},
+    {n:"RTX 5060 Ti", w:180, min:600, v12:false, val:1},
+    {n:"RTX 5060", w:145, min:550, v12:false, val:1},
+    {n:"RTX 5050", w:130, min:550, v12:false, val:1}
+  ]},
+  {g:"NVIDIA · RTX 40", items:[
+    {n:"RTX 4090", w:450, min:850, v12:true, val:3},
+    {n:"RTX 4080 / 4080 Super", w:320, min:750, v12:true, val:3},
+    {n:"RTX 4070 Ti / Ti Super", w:285, min:700, v12:true, val:2},
+    {n:"RTX 4070 / 4070 Super", w:200, min:650, v12:false, val:2},
+    {n:"RTX 4060 Ti", w:160, min:550, v12:false, val:1},
+    {n:"RTX 4060", w:115, min:550, v12:false, val:1}
+  ]},
+  {g:"AMD · RX 9000", items:[
+    {n:"RX 9070 XT", w:304, min:750, v12:false, val:2},
+    {n:"RX 9070", w:220, min:650, v12:false, val:2},
+    {n:"RX 9060 XT", w:182, min:600, v12:false, val:1}
+  ]},
+  {g:"AMD · RX 7000", items:[
+    {n:"RX 7900 XTX", w:355, min:800, v12:false, val:3},
+    {n:"RX 7900 XT", w:315, min:750, v12:false, val:2},
+    {n:"RX 7800 XT", w:263, min:700, v12:false, val:2},
+    {n:"RX 7700 XT", w:245, min:650, v12:false, val:2},
+    {n:"RX 7600", w:165, min:550, v12:false, val:1}
+  ]},
+  {g:"Intel Arc", items:[
+    {n:"Arc B580", w:190, min:600, v12:false, val:1},
+    {n:"Arc B570", w:150, min:550, v12:false, val:1}
+  ]}
+];
+
+var LADDER = [550,650,750,850,1000,1200];
+var BASE = 75; /* placa + RAM + 1 SSD + ventiladores stock */
+
+/* Catálogo de familias Mars (consumer) */
+var FAM = {
+  PSI:  {tier:"gold",     cert:"80 Plus Gold",     mod:"Full modular", war:"10 años", v12:true,  colors:["#111","#f4f4f5"], avail:[650,750,850,1000,1200], code:function(w){return "MPB"+w+"PSI"}},
+  SIM:  {tier:"bronze",   cert:"80 Plus Bronze",   mod:"Full modular", war:"7 años",  v12:false, colors:["#111","#f4f4f5"], avail:[650,750,850,1000],      code:function(w){return "MPB"+w+"SIM"}},
+  SI:   {tier:"bronze",   cert:"80 Plus Bronze",   mod:"No modular",   war:"7 años",  v12:false, colors:["#111","#f4f4f5"], avail:[550,650,750,850,1000],  code:function(w){return "MPB"+w+"SI"}},
+  PSID: {tier:"gold",     cert:"80 Plus Gold",     mod:"Cable fijo",   war:"10 años", v12:true,  colors:["#111"],            avail:[650],                  code:function(w){return "MPB"+w+"PSID"}},
+  MPIII:{tier:"bronze",   cert:"80 Plus Bronze",   mod:"No modular",   war:"5 años",  v12:false, colors:["#111","#f4f4f5"], avail:[550,650,750,850],       code:function(w){return w===550?"MPIII550P":"MPIII"+w}},
+  MPT:  {tier:"platinum", cert:"80 Plus Platinum", mod:"Full modular", war:"12 años", v12:true,  colors:["#111","#f4f4f5"], avail:[850,1000],              code:function(w){return "MPT"+w}}
+};
+var TIERNAME = {gold:"Gold",platinum:"Platinum",silver:"Silver",bronze:"Bronze"};
+
+/* URLs reales de ficha en marsgaming.eu — verificadas 200 OK (slugs PrestaShop, no derivables del código) */
+var PURL = {
+  "MPB650PSI":"https://marsgaming.eu/es/fuentes/mpb650psi",
+  "MPB750PSI":"https://marsgaming.eu/es/fuentes/mpb750psi",
+  "MPB850PSI":"https://marsgaming.eu/es/fuentes/mpb850psi",
+  "MPB1000PSI":"https://marsgaming.eu/es/fuentes/mpb1000psi",
+  "MPB1200PSI":"https://marsgaming.eu/es/fuentes/mpb1200psi",
+  "MPB650SIM":"https://marsgaming.eu/es/fuentes/mpb650sim",
+  "MPB750SIM":"https://marsgaming.eu/es/fuentes/mpb750sim",
+  "MPB850SIM":"https://marsgaming.eu/es/fuentes/mpb850sim",
+  "MPB1000SIM":"https://marsgaming.eu/es/fuentes/mpb1000sim",
+  "MPB550SI":"https://marsgaming.eu/es/fuentes/fuente-de-alimentacion-extreme-silence-mpb550si",
+  "MPB650SI":"https://marsgaming.eu/es/fuentes/fuente-de-alimentacion-extreme-silence-mpb650si",
+  "MPB750SI":"https://marsgaming.eu/es/fuentes/fuente-de-alimentacion-extreme-silence-mpb750si",
+  "MPB850SI":"https://marsgaming.eu/es/fuentes/mpb850si",
+  "MPB1000SI":"https://marsgaming.eu/es/fuentes/mpb1000si",
+  "MPB650PSID":"https://marsgaming.eu/es/componentes-gaming/mpb650psid",
+  "MPIII550P":"https://marsgaming.eu/es/fuentes/fuente-de-alimentacion-mpiii550p",
+  "MPIII650":"https://marsgaming.eu/es/fuentes/fuente-de-alimentacion-mpiii650",
+  "MPIII750":"https://marsgaming.eu/es/fuentes/fuente-de-alimentacion-mpiii750",
+  "MPIII850":"https://marsgaming.eu/es/fuentes/fuente-de-alimentacion-mpiii850"
+};
+function prodURL(code){ return PURL[code] || ("https://marsgaming.eu/es/buscar?controller=search&s="+encodeURIComponent(code)); }
+
+/* ---------------- HELPERS ---------------- */
+function ceilLadder(x){ for(var i=0;i<LADDER.length;i++){ if(LADDER[i]>=x) return LADDER[i]; } return LADDER[LADDER.length-1]; }
+function ladderUp(w){ for(var i=0;i<LADDER.length;i++){ if(LADDER[i]>w) return LADDER[i]; } return LADDER[LADDER.length-1]; }
+function famWatt(fkey,target){ var a=FAM[fkey].avail; for(var i=0;i<a.length;i++){ if(a[i]>=target) return a[i]; } return a[a.length-1]; }
+function el(id){ return document.getElementById(id); }
+
+/* ---------------- INIT FORM ---------------- */
+(function(){
+  var sel = el("gpu"); var html="";
+  for(var i=0;i<GPUS.length;i++){
+    html += '<optgroup label="'+GPUS[i].g+'">';
+    var it=GPUS[i].items;
+    for(var j=0;j<it.length;j++){
+      var def = (it[j].n==="RTX 5070") ? " selected" : "";
+      html += '<option value="'+i+'-'+j+'"'+def+'>'+it[j].n+'</option>';
+    }
+    html += '</optgroup>';
+  }
+  sel.innerHTML = html;
+})();
+
+function getGPU(){ var p=el("gpu").value.split("-"); return GPUS[parseInt(p[0],10)].items[parseInt(p[1],10)]; }
+
+/* checkbox visual state */
+var chks=document.querySelectorAll(".chk input");
+for(var c=0;c<chks.length;c++){ chks[c].addEventListener("change",function(){ this.parentNode.classList.toggle("active",this.checked); }); }
+
+/* advanced toggle */
+el("advBtn").addEventListener("click",function(){ this.classList.toggle("open"); el("advBox").classList.toggle("open"); });
+
+/* ---------------- CÁLCULO ---------------- */
+function compute(){
+  var gpu=getGPU();
+  var cpu=parseInt(el("cpu").value,10);
+  var disks=parseInt(el("disks").value,10)*10;
+  var rgb=el("rgb").checked?30:0;
+  var aio=el("aio").checked?25:0;
+  var oc=el("oc").checked;
+  var aesthetic=el("aesthetic").checked;
+
+  var draw = gpu.w + cpu + BASE + disks + rgb + aio;
+  if(oc){ draw = Math.round(draw*1.12); }
+
+  var recoRaw = Math.round(draw*1.4);
+  var recoW = Math.max(ceilLadder(recoRaw), gpu.min);
+  recoW = ceilLadder(recoW);
+
+  var office = (gpu.w===0);
+  var needs12 = gpu.v12 || recoW>=1000;
+
+  return {gpu:gpu,draw:draw,recoW:recoW,office:office,needs12:needs12,aesthetic:aesthetic};
+}
+
+/* construye las 3 tarjetas */
+function buildTrio(s){
+  var trio=[];
+  var w=s.recoW;
+  if(s.office){
+    trio.push({fkey:"MPIII", watt:famWatt("MPIII",w), rank:"Ajustada", hero:false, best:false});
+    trio.push({fkey:"SI",    watt:famWatt("SI",w),    rank:"Recomendada", hero:true,  best:true, note:"El equilibrio que recomendamos por defecto."});
+    trio.push({fkey:"SIM",   watt:famWatt("SIM",ladderUp(w)), rank:"A futuro", hero:false, best:false, fut:true});
+  } else if(s.needs12){
+    trio.push({fkey:"SI",    watt:famWatt("SI",w),    rank:"Ajustada", hero:false, best:false, adapter:true});
+    trio.push({fkey:"PSI",   watt:famWatt("PSI",w),   rank:"Recomendada", hero:true,  best:false, note:"Conector 12V-2x6 nativo: alimenta tu GPU sin adaptadores."});
+    var topW = ladderUp(w);
+    if(topW>w){ trio.push({fkey:"PSI", watt:topW, rank:"A futuro", hero:false, best:false, fut:true, note:"Más margen para picos y para tu próxima GPU."}); }
+    else { trio.push({fkey:"MPT", watt:famWatt("MPT",1000), rank:"A futuro", hero:false, best:false, soon:true, note:"Máxima eficiencia Platinum y 12 años de garantía."}); }
+  } else {
+    trio.push({fkey:"SI",    watt:famWatt("SI",w),    rank:"Ajustada", hero:false, best:false});
+    trio.push({fkey:"SIM",   watt:famWatt("SIM",w),   rank:"Recomendada", hero:true,  best:true, note:"Modular, el más vendido. Cables limpios por pocos euros más."});
+    trio.push({fkey:"PSI",   watt:famWatt("PSI",w),   rank:"A futuro", hero:false, best:false, fut:true, note:"Gold + 12V-2x6: lista para tu próxima GPU."});
+  }
+  return trio;
+}
+
+function svgCheck(){ return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.5 4.5L19 7" stroke="#34d399" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'; }
+
+function cardHTML(t,s){
+  var f=FAM[t.fkey];
+  var code=f.code(t.watt);
+  /* excepción real de la gama: la SI/SIM de 1000W sube a Gold */
+  var tier=f.tier, cert=f.cert;
+  if((t.fkey==="SI"||t.fkey==="SIM") && t.watt===1000){ tier="gold"; cert="80 Plus Gold"; }
+  var h='';
+  h+='<div class="pcard'+(t.hero?' hero':'')+' reveal">';
+  if(t.hero) h+='<div class="ribbon">Recomendada</div>';
+  if(t.best) h+='<div class="bestseller">★ El más vendido</div>';
+  h+='<div class="rank">'+t.rank+'</div>';
+  h+='<div class="model">'+code+'</div>';
+  h+='<div class="watt">'+t.watt+'<small> W</small></div>';
+  h+='<span class="tier '+tier+'"><span class="dot"></span>'+cert+'</span>';
+  h+='<ul class="specs">';
+  h+='<li>'+svgCheck()+'<span><b>'+f.mod+'</b></span></li>';
+  h+='<li>'+svgCheck()+'<span>Garantía <b>'+f.war+'</b></span></li>';
+  if(t.fkey==="SIM"||t.fkey==="SI"){ h+='<li>'+svgCheck()+'<span>Ventilador SI cobre <b>AI2-RPM</b></span></li>'; }
+  else if(tier==="gold"||tier==="platinum"){ h+='<li>'+svgCheck()+'<span>ATX 3.1 · Condensadores japoneses</span></li>'; }
+  else { h+='<li>'+svgCheck()+'<span>Protecciones completas OVP/OCP/SCP</span></li>'; }
+  h+='</ul>';
+  if(f.v12){ h+='<span class="tag-12v">'+svgCheck()+' 12V-2x6 nativo</span>'; }
+  if(t.adapter){ h+='<div class="tag-adapter">Incluye adaptador 12V-2x6</div>'; }
+  if(t.soon){ h+='<div class="tag-adapter" style="color:var(--gold-soft)">Nueva gama · llega en julio</div>'; }
+  if(t.note){ h+='<div class="tag-adapter" style="color:var(--muted);font-style:italic">'+t.note+'</div>'; }
+  h+='<div class="colors">';
+  for(var k=0;k<f.colors.length;k++){ h+='<span class="sw" style="background:'+f.colors[k]+'"></span>'; }
+  h+='</div>';
+  h+='<div class="buy">';
+  if(t.soon){ h+='<a style="cursor:default;opacity:.6;border-style:dashed" onclick="return false">Disponible en julio</a>'; }
+  else { h+='<a href="'+prodURL(code)+'" target="_blank" rel="noopener">Ver esta fuente →</a>'; }
+  h+='</div>';
+  h+='</div>';
+  return h;
+}
+
+function render(){
+  var s=compute();
+  var trio=buildTrio(s);
+
+  /* gauge */
+  var heroWatt = trio[1].watt;
+  el("drawV").innerHTML = s.draw + '<small> W</small>';
+  el("recoV").innerHTML = heroWatt + '<small> W</small>';
+  el("barMax").textContent = heroWatt + " W";
+  var loadPct = Math.min(100, Math.round(s.draw/heroWatt*100));
+  el("idealZone").style.left = "50%";
+  el("idealZone").style.width = "20%";
+  /* reset + animate */
+  el("barFill").style.width="0%";
+  setTimeout(function(){ el("barFill").style.width=loadPct+"%"; },60);
+
+  /* risk / loss-aversion line */
+  var rl=el("riskLine"); var warn='<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3L12 3z" stroke="#f87171" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4M12 17v.5" stroke="#f87171" stroke-width="2" stroke-linecap="round"/></svg>';
+  if(s.office){
+    rl.innerHTML = warn+'<span>Para un equipo de oficina, <b>no hace falta sobredimensionar</b>: una Bronze fiable de 7 años es la opción con mejor relación precio/calidad.</span>';
+  } else if(s.gpu.val>=3){
+    rl.innerHTML = warn+'<span>Tu GPU es una inversión de varios cientos de euros. <b>No la arriesgues con una fuente justa:</b> los picos de consumo de las gráficas top pueden duplicar su consumo medio en milisegundos.</span>';
+  } else {
+    rl.innerHTML = warn+'<span>Una fuente con margen <b>protege tu GPU, placa y CPU</b> de apagones y picos. Es lo último donde merece la pena ahorrar.</span>';
+  }
+
+  /* cards */
+  var ch=''; for(var i=0;i<trio.length;i++){ ch+=cardHTML(trio[i],s); }
+  el("cards").innerHTML = ch;
+
+  /* aesthetic block */
+  el("aestBlock").style.display = s.aesthetic ? "block" : "none";
+
+  /* show + animate reveals (re-trigger) */
+  var res=el("result"); res.classList.add("show");
+  var revs=res.querySelectorAll(".reveal");
+  for(var r=0;r<revs.length;r++){ revs[r].style.animation="none"; void revs[r].offsetWidth; revs[r].style.animation=""; }
+
+  res.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+el("calcBtn").addEventListener("click", render);
+</script>
+</body>
+</html>

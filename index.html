@@ -228,8 +228,8 @@ select option{background:#0e0f15;color:var(--text)}
 .risk b{color:#ffd2d2}
 
 /* product cards */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.cardx{position:relative;background:var(--card);border:1px solid var(--border-hi);border-radius:18px;
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.cardx{position:relative;flex:1 1 200px;max-width:340px;background:var(--card);border:1px solid var(--border-hi);border-radius:18px;
   padding:22px 20px 20px;display:flex;flex-direction:column;transition:transform .3s var(--eo),box-shadow .3s,border-color .3s;
   will-change:transform;transform-style:preserve-3d}
 .cardx:hover{border-color:rgba(255,255,255,.28)}
@@ -828,8 +828,8 @@ function getGPU(){ var p=el("gpu").value.split("-"); return GPUS[parseInt(p[0],1
 
 function compute(){
   var gpu=getGPU();
-  var cpu=parseInt(el("cpu").value,10);
-  var disks=parseInt(el("disks").value,10)*10;
+  var cpu=parseInt(el("cpu").value,10)||0;
+  var disks=(parseInt(el("disks").value,10)||0)*10;
   var rgb=el("rgb").checked?30:0;
   var aio=el("aio").checked?25:0;
   var oc=el("oc").checked;
@@ -856,11 +856,22 @@ function buildTrio(s){
     trio.push({fkey:"SI",    watt:famWatt("SI",w),    rank:"Recomendada", hero:true,  best:true, note:"El equilibrio que recomendamos por defecto."});
     trio.push({fkey:"SIM",   watt:famWatt("SIM",ladderUp(w)), rank:"A futuro", hero:false, best:false, fut:true});
   } else if(s.needs12){
-    trio.push({fkey:"SI",    watt:famWatt("SI",w),    rank:"Ajustada", hero:false, best:false, adapter:true});
-    trio.push({fkey:"PSI",   watt:famWatt("PSI",w),   rank:"Recomendada", hero:true,  best:false, note:"Conector 12V-2x6 nativo: alimenta tu GPU sin adaptadores."});
-    var topW = ladderUp(w);
-    if(topW>w){ trio.push({fkey:"PSI", watt:topW, rank:"A futuro", hero:false, best:false, fut:true, note:"Más margen para picos y para tu próxima GPU."}); }
-    else { trio.push({fkey:"MPT", watt:famWatt("MPT",1000), rank:"A futuro", hero:false, best:false, soon:true, note:"Cables planos premium de fibra de carbono y ventilador 12 dB AI3-RPM."}); }
+    /* GPU con 12V-2x6 (RTX 40/50) o build de alto consumo: SOLO fuentes con
+       conector 12V-2x6 NATIVO (PSI/PSID). Las SI/SIM/MPIII solo llevan PCIe 6+2
+       y NO incluyen adaptador, por lo que no se recomiendan en esta ruta. */
+    if(w<=650){
+      trio.push({fkey:"PSID", watt:650, rank:"Ajustada", hero:false, best:false, note:"Gold y 12V-2x6 nativo, cable fijo: la opción directa más económica."});
+      trio.push({fkey:"PSI",  watt:famWatt("PSI",650), rank:"Recomendada", hero:true, best:true, note:"Full modular y 12V-2x6 nativo: alimenta tu GPU sin adaptadores."});
+      trio.push({fkey:"PSI",  watt:famWatt("PSI",ladderUp(650)), rank:"A futuro", hero:false, best:false, fut:true, note:"Más margen para picos y para tu próxima GPU."});
+    } else {
+      var fit=famWatt("PSI",w), up=famWatt("PSI",ladderUp(w));
+      trio.push({fkey:"PSI", watt:fit, rank:"Recomendada", hero:true, best:true, note:"Full modular y 12V-2x6 nativo: alimenta tu GPU sin adaptadores."});
+      if(up>fit){
+        trio.push({fkey:"PSI", watt:up, rank:"A futuro", hero:false, best:false, fut:true, note:"Más margen para picos y para tu próxima GPU."});
+        var up2=famWatt("PSI",ladderUp(up));
+        if(up2>up){ trio.push({fkey:"PSI", watt:up2, rank:"Tope de gama", hero:false, best:false, fut:true, note:"Máxima potencia para el equipo más exigente."}); }
+      }
+    }
   } else {
     trio.push({fkey:"SI",    watt:famWatt("SI",w),    rank:"Ajustada", hero:false, best:false});
     trio.push({fkey:"SIM",   watt:famWatt("SIM",w),   rank:"Recomendada", hero:true,  best:true, note:"Modular, el más vendido. Cables limpios por pocos euros más."});
@@ -892,7 +903,6 @@ function cardHTML(t,s){
   else { h+='<li>'+svgCheck()+'<span>Protecciones completas OVP/OCP/SCP</span></li>'; }
   h+='</ul>';
   if(f.v12){ h+='<span class="tag-12v">'+svgCheck()+' 12V-2x6 nativo</span>'; }
-  if(t.adapter){ h+='<div class="tag-adapter">Incluye adaptador 12V-2x6</div>'; }
   if(t.soon){ h+='<div class="tag-adapter" style="color:var(--gold)">Nueva gama · llega en julio</div>'; }
   if(t.note){ h+='<div class="tag-adapter" style="color:var(--muted);font-style:italic">'+t.note+'</div>'; }
   h+='<div class="colors">';
@@ -1308,7 +1318,8 @@ function liveUpdate(){
 function render(){
   var s=compute();
   var trio=buildTrio(s);
-  var heroWatt=trio[1].watt;
+  var heroCard=trio[0]; for(var hi=0;hi<trio.length;hi++){ if(trio[hi].hero){ heroCard=trio[hi]; break; } }
+  var heroWatt=heroCard.watt;
   var loadPct=Math.min(100,Math.round(s.draw/heroWatt*100));
   var headPct=Math.max(0,100-loadPct);
 

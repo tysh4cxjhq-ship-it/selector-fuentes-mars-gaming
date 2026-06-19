@@ -331,6 +331,83 @@ select option{background:#0e0f15;color:var(--text)}
   .reveal{opacity:1;transform:none}
   .bg-fallback{animation:none}
 }
+
+/* ---------- breakdown (transparencia del cálculo) ---------- */
+.breakdown{background:rgba(10,11,16,.5);border:1px solid var(--border);border-radius:16px;padding:18px 20px;margin-bottom:24px}
+.bd-title{font-family:'Rajdhani',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:12px;color:var(--ember);margin-bottom:12px}
+.bd-rows{display:flex;flex-direction:column;gap:7px}
+.bd-rows .row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;font-size:14px;color:#cfd3da}
+.bd-rows .row b{font-family:'JetBrains Mono',monospace;color:var(--text);white-space:nowrap}
+.bd-rows .row.total{border-top:1px solid var(--border-hi);margin-top:5px;padding-top:9px}
+.bd-rows .row.total span{font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:.02em;color:var(--text)}
+.bd-rows .row.total b{color:var(--ember);font-weight:700}
+
+/* ---------- content sections ---------- */
+.csec{margin-top:54px}
+.csec-head{text-align:center;margin-bottom:24px}
+.csec-head .eyebrow{font-family:'Rajdhani',sans-serif;text-transform:uppercase;letter-spacing:.28em;font-size:12px;color:var(--mars)}
+.csec-head h2{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:clamp(23px,4vw,33px);margin-top:6px}
+.csec-head p{color:var(--muted);font-size:14.5px;max-width:580px;margin:8px auto 0}
+
+/* comparison matrix */
+.matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border);border-radius:18px;background:var(--surface)}
+.matrix{width:100%;min-width:700px;border-collapse:collapse;font-size:14px}
+.matrix th,.matrix td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--border);vertical-align:middle}
+.matrix thead th{font-family:'Rajdhani',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:11.5px;color:var(--muted);background:rgba(10,11,16,.5)}
+.matrix tbody tr:last-child td{border-bottom:none}
+.matrix tbody tr{transition:background .2s}
+.matrix tbody tr:hover{background:rgba(255,255,255,.025)}
+.matrix .fam{display:flex;flex-direction:column;gap:2px}
+.matrix .fam a,.matrix .fam .famx{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;color:var(--text);text-decoration:none;transition:color .2s}
+.matrix .fam a:hover{color:var(--mars-hot)}
+.matrix .fam .pw{font-family:'Exo 2',sans-serif;font-weight:400;font-size:11.5px;color:var(--faint)}
+.matrix .cert{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.matrix .cert .dot{width:8px;height:8px;border-radius:50%;flex:none}
+.cdot-gold{background:var(--gold);box-shadow:0 0 7px var(--gold)}
+.cdot-plat{background:#e9ecf2;box-shadow:0 0 7px #e9ecf2}
+.cdot-bronze{background:var(--bronze);box-shadow:0 0 7px var(--bronze)}
+.matrix .yes{color:var(--green);font-weight:600}
+.matrix .no{color:var(--faint)}
+.matrix .soon-tag{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:.05em;color:var(--gold);background:rgba(240,196,77,.12);border:1px solid rgba(240,196,77,.35);padding:2px 7px;border-radius:5px;margin-left:6px;white-space:nowrap}
+.matrix-note{font-size:12px;color:var(--faint);margin-top:11px}
+.scroll-hint{display:none;font-size:11.5px;color:var(--faint);text-align:center;margin-top:9px}
+
+/* info cards */
+.infogrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.infocard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:transform .25s var(--eo),border-color .25s}
+.infocard:hover{transform:translateY(-3px);border-color:rgba(226,14,23,.4)}
+.infocard .ic{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;margin-bottom:14px;color:var(--mars-hot);
+  background:linear-gradient(135deg,rgba(226,14,23,.18),rgba(255,122,24,.08));border:1px solid rgba(226,14,23,.25)}
+.infocard h3{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:17px;margin-bottom:7px}
+.infocard p{font-size:13.8px;color:#bcc2cc;line-height:1.55}
+.infocard p b{color:var(--text)}
+
+/* FAQ */
+.faqwrap{display:flex;flex-direction:column;gap:10px}
+.faq{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:17px 20px;display:flex;align-items:center;gap:13px;
+  font-family:'Rajdhani',sans-serif;font-weight:600;font-size:16px;color:var(--text);transition:color .2s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--mars-hot)}
+.faq summary .q{flex:none;width:23px;height:23px;border-radius:6px;display:grid;place-items:center;font-family:'JetBrains Mono',monospace;
+  font-size:12px;color:var(--mars);background:rgba(226,14,23,.12);border:1px solid rgba(226,14,23,.3)}
+.faq summary .plus{margin-left:auto;position:relative;width:14px;height:14px;flex:none}
+.faq summary .plus::before,.faq summary .plus::after{content:"";position:absolute;background:var(--muted);transition:transform .25s var(--eo)}
+.faq summary .plus::before{left:0;top:6px;width:14px;height:2px}
+.faq summary .plus::after{left:6px;top:0;width:2px;height:14px}
+.faq[open] summary .plus::after{transform:scaleY(0)}
+.faq[open] summary{color:var(--mars-hot)}
+.faq .a{padding:0 20px 18px 56px;font-size:14px;color:#bcc2cc;line-height:1.62}
+.faq .a b{color:var(--text)}
+
+@media(max-width:880px){
+  .infogrid{grid-template-columns:1fr 1fr}
+  .scroll-hint{display:block}
+}
+@media(max-width:560px){
+  .infogrid{grid-template-columns:1fr}
+  .faq .a{padding-left:20px}
+}
 </style>
 </head>
 <body>
@@ -446,6 +523,7 @@ select option{background:#0e0f15;color:var(--text)}
       <div class="eyebrow">Tu recomendación</div>
       <h2>La fuente <b>ideal</b> para tu equipo</h2>
     </div>
+    <div class="breakdown reveal" id="breakdown"></div>
     <div class="risk reveal" id="riskLine"></div>
     <div class="cards" id="cards"></div>
 
@@ -479,6 +557,120 @@ select option{background:#0e0f15;color:var(--text)}
         <div class="seg"><div class="code">M / W</div><div class="lbl">Modular / Color</div><div class="desc">M = cables desmontables · W = acabado blanco.</div></div>
       </div>
     </details>
+  </section>
+
+  <!-- ============ CONTENIDO ÚTIL ============ -->
+
+  <!-- La gama de un vistazo -->
+  <section class="csec reveal">
+    <div class="csec-head">
+      <div class="eyebrow">La gama, sin líos</div>
+      <h2>Toda la gama Mars Gaming de un vistazo</h2>
+      <p>Seis familias, una lógica simple. Compáralas y entra directo a la ficha de cada una.</p>
+    </div>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>Familia</th><th>Certificación</th><th>Cables</th><th>Garantía</th><th>12V-2x6 nativo</th><th>Ideal para</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="fam"><a href="https://marsgaming.eu/es/fuentes/mpb850psi" target="_blank" rel="noopener">PSI</a><span class="pw">650–1200 W</span></span></td>
+            <td><span class="cert"><span class="dot cdot-gold"></span>80 Plus Gold</span></td>
+            <td>Full modular</td><td>10 años</td><td class="yes">Sí · PCIe 5.1</td><td>Gama alta y GPUs RTX 40/50</td>
+          </tr>
+          <tr>
+            <td><span class="fam"><span class="famx">MPT<span class="soon-tag">julio</span></span><span class="pw">850/1000 W</span></span></td>
+            <td><span class="cert"><span class="dot cdot-plat"></span>80 Plus Platinum</span></td>
+            <td>Full modular</td><td>12 años</td><td class="yes">Sí</td><td>Lo más exigente · máxima eficiencia</td>
+          </tr>
+          <tr>
+            <td><span class="fam"><a href="https://marsgaming.eu/es/componentes-gaming/mpb650psid" target="_blank" rel="noopener">PSID</a><span class="pw">650 W</span></span></td>
+            <td><span class="cert"><span class="dot cdot-gold"></span>80 Plus Gold</span></td>
+            <td>Cable fijo</td><td>10 años</td><td class="yes">Sí · PCIe 5.1</td><td>Gold directa, sin gestión de cables</td>
+          </tr>
+          <tr>
+            <td><span class="fam"><a href="https://marsgaming.eu/es/fuentes/mpb850sim" target="_blank" rel="noopener">SIM</a><span class="pw">650–1000 W</span></span></td>
+            <td><span class="cert"><span class="dot cdot-bronze"></span>80 Plus Bronze*</span></td>
+            <td>Full modular</td><td>7 años</td><td class="no">No</td><td>Equilibrio: modular y fiable</td>
+          </tr>
+          <tr>
+            <td><span class="fam"><a href="https://marsgaming.eu/es/fuentes/mpb850si" target="_blank" rel="noopener">SI</a><span class="pw">550–1000 W</span></span></td>
+            <td><span class="cert"><span class="dot cdot-bronze"></span>80 Plus Bronze*</span></td>
+            <td>Cable fijo</td><td>7 años</td><td class="no">No</td><td>Montaje fiable y económico</td>
+          </tr>
+          <tr>
+            <td><span class="fam"><a href="https://marsgaming.eu/es/fuentes/fuente-de-alimentacion-mpiii650" target="_blank" rel="noopener">MPIII</a><span class="pw">550–850 W</span></span></td>
+            <td><span class="cert"><span class="dot cdot-bronze"></span>~85 % · Bronze</span></td>
+            <td>Cable fijo</td><td>5 años</td><td class="no">No</td><td>Entrada · oficina · presupuesto</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="scroll-hint">← desliza para ver toda la tabla →</div>
+    <div class="matrix-note">*Las SIM y SI de 1000 W suben a certificación 80 Plus Gold. La MPT llega en julio.</div>
+  </section>
+
+  <!-- Lo que de verdad importa -->
+  <section class="csec reveal">
+    <div class="csec-head">
+      <div class="eyebrow">Antes de decidir</div>
+      <h2>Lo que de verdad importa al elegir fuente</h2>
+      <p>Cinco cosas marcan la diferencia. El resto es ruido.</p>
+    </div>
+    <div class="infogrid">
+      <div class="infocard">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 18l4-4"/></svg></div>
+        <h3>Potencia con margen</h3>
+        <p>No es comprar la más potente, sino la adecuada con margen. Lo ideal es que tu equipo use el <b>50–70 %</b> de la fuente: ahí rinde con más eficiencia, menos calor y silencio, y absorbe los picos de las gráficas sin inmutarse.</p>
+      </div>
+      <div class="infocard">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+        <h3>Eficiencia 80 Plus</h3>
+        <p>Bronze (~85 %), Gold (~90 %) y Platinum (~92 %) miden cuánta energía aprovecha la fuente. <b>Más eficiencia = menos calor, ventilador más tranquilo y algo menos de factura.</b> Para gama alta, una Gold compensa.</p>
+      </div>
+      <div class="infocard">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6"/><path d="M12 9l-5 4"/><path d="M12 9l5 4"/><path d="M7 13v3a2 2 0 0 0 2 2"/><path d="M17 13v3a2 2 0 0 1-2 2"/></svg></div>
+        <h3>Cables: modular o fijo</h3>
+        <p><b>Full modular</b> (PSI, SIM): conectas solo los cables que usas — montaje limpio, mejor flujo de aire y estética para cajas con cristal. <b>Cable fijo</b> (SI, PSID, MPIII): más económico y exactamente igual de fiable.</p>
+      </div>
+      <div class="infocard">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7V4"/><path d="M15 7V4"/><path d="M6 7h12v3a6 6 0 0 1-12 0V7z"/><path d="M12 16v4"/></svg></div>
+        <h3>ATX 3.1 y 12V-2x6</h3>
+        <p>Las RTX 40/50 piden el conector nativo <b>12V-2x6 (PCIe 5.1)</b>. Las Gold de Mars (PSI, PSID) y la Platinum (MPT) lo traen de serie: alimentas tu GPU directamente, <b>sin adaptadores</b>, y aguantan los picos del estándar ATX 3.1.</p>
+      </div>
+      <div class="infocard">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Garantía y protecciones</h3>
+        <p>De <b>5 a 12 años</b> según gama, y un sistema completo de protecciones (OCP, OVP, OPP, OTP, SCP…) que blinda placa, CPU y GPU ante sobrecargas, picos y cortos. Por dentro: condensadores japoneses 105 °C y ventilador AI2-RPM.</p>
+      </div>
+      <div class="infocard">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 9 9"/><path d="M12 12l5-3"/><circle cx="12" cy="12" r="1.6"/><path d="M5 19h14"/></svg></div>
+        <h3>El silencio cuenta</h3>
+        <p>El ventilador <b>SI Extreme Silence</b> con rodamientos FDB y control <b>AI2-RPM</b> ajusta su velocidad con IA según la temperatura: refrigera cuando hace falta y se calla cuando no. Una fuente bien dimensionada apenas se oye.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="csec reveal">
+    <div class="csec-head">
+      <div class="eyebrow">Dudas frecuentes</div>
+      <h2>Preguntas que todo el mundo se hace</h2>
+      <p>Respuestas claras y honestas para comprar con cabeza.</p>
+    </div>
+    <div class="faqwrap">
+      <details class="faq"><summary><span class="q">?</span>¿Cuántos vatios necesito de verdad?<span class="plus"></span></summary><div class="a">Lo que más pesa es tu <b>gráfica</b> y tu <b>procesador</b>; el resto del equipo suma poco. Súmalo todo y añade margen. El selector de arriba lo calcula por ti y aplica un margen de seguridad para que trabajes en la zona óptima. Como referencia: gama media ~550–650 W, gama alta ~750–850 W, tope (RTX 4090/5090) 1000 W o más.</div></details>
+      <details class="faq"><summary><span class="q">?</span>¿Más vatios es siempre mejor?<span class="plus"></span></summary><div class="a">No. Una fuente muy sobredimensionada trabaja por debajo de su zona eficiente y <b>pagas de más sin ganar nada</b>. Lo ideal es que tu equipo use entre el 50 % y el 70 % de la potencia de la fuente: ahí está su punto dulce de eficiencia y silencio.</div></details>
+      <details class="faq"><summary><span class="q">?</span>¿Qué pasa si me quedo corto de potencia?<span class="plus"></span></summary><div class="a">Apagones bajo carga, reinicios, inestabilidad y, en el peor caso, estrés sobre tus componentes. Es <b>el punto donde menos merece la pena ahorrar</b>: la fuente es lo que alimenta y protege todo lo demás.</div></details>
+      <details class="faq"><summary><span class="q">?</span>¿Bronze, Gold o Platinum?<span class="plus"></span></summary><div class="a">Para oficina o gama media-baja, una <b>Bronze</b> fiable cumple de sobra. Para gama alta y uso intensivo, una <b>Gold</b> reduce calor y consumo y suele durar más fresca. <b>Platinum</b> es para quien busca la máxima eficiencia y la mejor garantía.</div></details>
+      <details class="faq"><summary><span class="q">?</span>¿Necesito una fuente modular?<span class="plus"></span></summary><div class="a">No es obligatorio. El <b>full modular</b> (PSI, SIM) deja el montaje más limpio, mejora el flujo de aire y luce mejor en cajas con cristal. Si la fuente queda oculta y no te importa, una de cable fijo es igual de fiable y más económica.</div></details>
+      <details class="faq"><summary><span class="q">?</span>¿Qué es el conector 12V-2x6 / ATX 3.1?<span class="plus"></span></summary><div class="a">Es el estándar actual para las gráficas nuevas (RTX 40 y 50). Las fuentes que lo traen <b>de serie</b> alimentan la GPU directamente, sin adaptadores, y manejan mejor los picos de consumo. Si tu gráfica lo pide, elige una fuente con 12V-2x6 nativo (las Gold y Platinum de Mars lo incluyen).</div></details>
+      <details class="faq"><summary><span class="q">?</span>¿Da igual la marca de la fuente?<span class="plus"></span></summary><div class="a">No. Es el componente que alimenta todo lo demás, así que la calidad importa. Mars Gaming usa <b>condensadores japoneses de 105 °C</b>, protecciones completas y garantías de hasta 12 años. Una fuente barata sin protecciones puede salir muy cara si falla.</div></details>
+      <details class="faq"><summary><span class="q">?</span>¿Puedo reutilizar mi fuente antigua?<span class="plus"></span></summary><div class="a">Si tiene potencia y conectores suficientes y pocos años de uso, puede valer. Pero las fuentes pierden capacidad con el tiempo y las antiguas no suelen traer 12V-2x6 ni soportar bien los picos de las GPUs actuales. Ante la duda, comprueba <b>potencia, conectores y antigüedad</b>.</div></details>
+    </div>
   </section>
 
   <footer class="site-foot">
@@ -1054,6 +1246,23 @@ function render(){
   var loadPct=Math.min(100,Math.round(s.draw/heroWatt*100));
   var headPct=Math.max(0,100-loadPct);
 
+  /* desglose del consumo (transparencia) */
+  var cpuW=parseInt(el("cpu").value,10);
+  var cpuLbl={65:"básico",120:"gama media",150:"gama alta",230:"entusiasta"}[cpuW]||"";
+  var dks=parseInt(el("disks").value,10)*10;
+  var bd='<div class="bd-title">De dónde sale tu cifra</div><div class="bd-rows">';
+  bd+='<div class="row"><span>GPU · '+(s.gpu.w>0?s.gpu.n:"sin gráfica dedicada")+'</span><b>'+s.gpu.w+' W</b></div>';
+  bd+='<div class="row"><span>Procesador'+(cpuLbl?" · "+cpuLbl:"")+'</span><b>'+cpuW+' W</b></div>';
+  bd+='<div class="row"><span>Sistema base · placa, RAM, SSD, ventiladores</span><b>'+BASE+' W</b></div>';
+  if(dks>0){ bd+='<div class="row"><span>Discos extra</span><b>+'+dks+' W</b></div>'; }
+  if(el("rgb").checked){ bd+='<div class="row"><span>Iluminación RGB</span><b>+30 W</b></div>'; }
+  if(el("aio").checked){ bd+='<div class="row"><span>Refrigeración líquida (AIO)</span><b>+25 W</b></div>'; }
+  if(el("oc").checked){ bd+='<div class="row"><span>Margen por overclock</span><b>×1,12</b></div>'; }
+  bd+='<div class="row total"><span>Consumo estimado</span><b>'+s.draw+' W</b></div>';
+  bd+='<div class="row total"><span>Potencia recomendada · con margen de seguridad</span><b>'+heroWatt+' W</b></div>';
+  bd+='</div>';
+  el("breakdown").innerHTML=bd;
+
   /* reactor -> modo carga + surge */
   reactor.commit(s.draw,heroWatt,loadPct);
 
@@ -1099,6 +1308,22 @@ el("calcBtn").addEventListener('click',render);
 
 /* primer pulso del núcleo con el equipo por defecto */
 liveUpdate();
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"¿Cuántos vatios necesito de verdad para mi PC?","acceptedAnswer":{"@type":"Answer","text":"Lo que más pesa es la gráfica y el procesador; el resto del equipo suma poco. Como referencia: gama media unos 550–650 W, gama alta 750–850 W, y tope (RTX 4090/5090) 1000 W o más. Conviene añadir un margen de seguridad para trabajar en la zona óptima de carga."}},
+    {"@type":"Question","name":"¿Más vatios es siempre mejor en una fuente de alimentación?","acceptedAnswer":{"@type":"Answer","text":"No. Una fuente muy sobredimensionada trabaja por debajo de su zona eficiente y pagas de más sin ganar nada. Lo ideal es que el equipo use entre el 50 % y el 70 % de la potencia de la fuente."}},
+    {"@type":"Question","name":"¿Qué pasa si la fuente se queda corta de potencia?","acceptedAnswer":{"@type":"Answer","text":"Puede provocar apagones bajo carga, reinicios e inestabilidad y, en el peor caso, estrés sobre los componentes. Es el punto donde menos merece la pena ahorrar, porque la fuente alimenta y protege todo lo demás."}},
+    {"@type":"Question","name":"¿Bronze, Gold o Platinum: qué certificación 80 Plus elegir?","acceptedAnswer":{"@type":"Answer","text":"Para oficina o gama media-baja, una Bronze fiable cumple de sobra. Para gama alta y uso intensivo, una Gold reduce calor y consumo y suele durar más fresca. Platinum es para quien busca la máxima eficiencia y garantía."}},
+    {"@type":"Question","name":"¿Necesito una fuente modular?","acceptedAnswer":{"@type":"Answer","text":"No es obligatorio. El full modular deja el montaje más limpio, mejora el flujo de aire y luce mejor en cajas con cristal. Si la fuente queda oculta, una de cable fijo es igual de fiable y más económica."}},
+    {"@type":"Question","name":"¿Qué es el conector 12V-2x6 y el estándar ATX 3.1?","acceptedAnswer":{"@type":"Answer","text":"Es el estándar actual para las gráficas nuevas (RTX 40 y 50). Las fuentes que lo traen de serie alimentan la GPU directamente, sin adaptadores, y manejan mejor los picos de consumo. Si la gráfica lo pide, conviene una fuente con 12V-2x6 nativo."}},
+    {"@type":"Question","name":"¿Da igual la marca de la fuente de alimentación?","acceptedAnswer":{"@type":"Answer","text":"No. Es el componente que alimenta todo lo demás, así que la calidad importa. Mars Gaming usa condensadores japoneses de 105 °C, protecciones completas y garantías de hasta 12 años. Una fuente barata sin protecciones puede salir muy cara si falla."}},
+    {"@type":"Question","name":"¿Puedo reutilizar mi fuente antigua en un PC nuevo?","acceptedAnswer":{"@type":"Answer","text":"Si tiene potencia y conectores suficientes y pocos años de uso, puede valer. Pero las fuentes pierden capacidad con el tiempo y las antiguas no suelen traer 12V-2x6 ni soportar bien los picos de las GPUs actuales. Conviene revisar potencia, conectores y antigüedad."}}
+  ]
+}
 </script>
 </body>
 </html>

@@ -627,12 +627,12 @@ select option{background:#0e0f15;color:var(--text)}
             <td>Full modular</td><td>10 años</td><td class="yes">Sí · PCIe 5.1</td><td>Gama alta y GPUs RTX 40/50</td>
           </tr>
           <tr>
-            <td><span class="fam"><span class="famx">MPT<span class="soon-tag">julio</span></span><span class="pw">850/1000 W</span></span></td>
+            <td><span class="fam"><span class="famx">MPT</span><span class="pw">850/1000 W</span></span></td>
             <td><span class="cert"><span class="dot cdot-plat"></span>80 Plus Platinum</span></td>
-            <td>Full modular</td><td>Por confirmar</td><td class="yes">Sí</td><td>Lo más exigente · máxima eficiencia</td>
+            <td>Full modular</td><td>12 años</td><td class="yes">Sí</td><td>Lo más exigente · máxima eficiencia</td>
           </tr>
           <tr>
-            <td><span class="fam"><a href="https://marsgaming.eu/es/componentes-gaming/mpb650psid" target="_blank" rel="noopener">PSID</a><span class="pw">650 W</span></span></td>
+            <td><span class="fam"><a href="https://marsgaming.eu/es/componentes-gaming/mpb650psid" target="_blank" rel="noopener">PSID</a><span class="pw">650–850 W</span></span></td>
             <td><span class="cert"><span class="dot cdot-gold"></span>80 Plus Gold</span></td>
             <td>Cable fijo</td><td>10 años</td><td class="yes">Sí · PCIe 5.1</td><td>Gold directa, sin gestión de cables</td>
           </tr>
@@ -655,7 +655,7 @@ select option{background:#0e0f15;color:var(--text)}
       </table>
     </div>
     <div class="scroll-hint">← desliza para ver toda la tabla →</div>
-    <div class="matrix-note">*Las SIM y SI de 1000 W suben a certificación 80 Plus Gold. La MPT llega en julio. La PSID amplía a 750 y 850 W en septiembre.</div>
+    <div class="matrix-note">*Las SIM y SI de 1000 W suben a certificación 80 Plus Gold.</div>
   </section>
 
   <!-- Lo que de verdad importa -->
@@ -790,9 +790,9 @@ var FAM = {
   PSI:  {tier:"gold",     cert:"80 Plus Gold",     mod:"Full modular", war:"10 años", v12:true,  colors:["#111","#f4f4f5"], avail:[650,750,850,1000,1200], code:function(w){return "MPB"+w+"PSI"}},
   SIM:  {tier:"bronze",   cert:"80 Plus Bronze",   mod:"Full modular", war:"7 años",  v12:false, colors:["#111","#f4f4f5"], avail:[650,750,850,1000],      code:function(w){return "MPB"+w+"SIM"}},
   SI:   {tier:"bronze",   cert:"80 Plus Bronze",   mod:"No modular",   war:"7 años",  v12:false, colors:["#111","#f4f4f5"], avail:[550,650,750,850,1000],  code:function(w){return "MPB"+w+"SI"}},
-  PSID: {tier:"gold",     cert:"80 Plus Gold",     mod:"Cable fijo",   war:"10 años", v12:true,  colors:["#111"],            avail:[650],                  code:function(w){return "MPB"+w+"PSID"}},
+  PSID: {tier:"gold",     cert:"80 Plus Gold",     mod:"Cable fijo",   war:"10 años", v12:true,  colors:["#111"],            avail:[650,750,850],          code:function(w){return "MPB"+w+"PSID"}},
   MPIII:{tier:"bronze",   cert:"80 Plus Bronze",   mod:"No modular",   war:"5 años",  v12:false, colors:["#111","#f4f4f5"], avail:[550,650,750,850],       code:function(w){return w===550?"MPIII550P":"MPIII"+w}},
-  MPT:  {tier:"platinum", cert:"80 Plus Platinum", mod:"Full modular", war:"Por confirmar", v12:true,  colors:["#111","#f4f4f5"], avail:[850,1000],              code:function(w){return "MPT"+w}}
+  MPT:  {tier:"platinum", cert:"80 Plus Platinum", mod:"Full modular", war:"12 años", v12:true,  colors:["#111","#f4f4f5"], avail:[850,1000],              code:function(w){return "MPT"+w}}
 };
 var TIERNAME = {gold:"Gold",platinum:"Platinum",silver:"Silver",bronze:"Bronze"};
 

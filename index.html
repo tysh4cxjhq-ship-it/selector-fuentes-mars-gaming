@@ -148,8 +148,8 @@ select option{background:#0e0f15;color:var(--text)}
   font-family:inherit;color:var(--text);
 }
 .tile:hover{transform:translateY(-2px);border-color:rgba(226,14,23,.55);box-shadow:0 10px 24px -16px rgba(226,14,23,.7)}
-.tile .tn{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;letter-spacing:.01em}
-.tile .td{font-size:12px;color:var(--muted);margin-top:2px}
+.tile .tn{display:block;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:15px;letter-spacing:.01em}
+.tile .td{display:block;font-size:12px;color:var(--muted);margin-top:5px}
 .tile .tw{position:absolute;top:11px;right:12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--faint)}
 .tile[aria-pressed="true"]{
   background:linear-gradient(135deg,rgba(226,14,23,.18),rgba(226,14,23,.04));
@@ -753,7 +753,7 @@ var GPUS = [
     {n:"RTX 5090", w:575, min:1000, v12:true, val:3},
     {n:"RTX 5080", w:360, min:850, v12:true, val:3},
     {n:"RTX 5070 Ti", w:300, min:750, v12:true, val:2},
-    {n:"RTX 5070", w:250, min:650, v12:false, val:2},
+    {n:"RTX 5070", w:250, min:650, v12:true, val:2},
     {n:"RTX 5060 Ti", w:180, min:600, v12:false, val:1},
     {n:"RTX 5060", w:145, min:550, v12:false, val:1},
     {n:"RTX 5050", w:130, min:550, v12:false, val:1}
@@ -762,7 +762,7 @@ var GPUS = [
     {n:"RTX 4090", w:450, min:850, v12:true, val:3},
     {n:"RTX 4080 / 4080 Super", w:320, min:750, v12:true, val:3},
     {n:"RTX 4070 Ti / Ti Super", w:285, min:700, v12:true, val:2},
-    {n:"RTX 4070 / 4070 Super", w:200, min:650, v12:false, val:2},
+    {n:"RTX 4070 / 4070 Super", w:200, min:650, v12:true, val:2},
     {n:"RTX 4060 Ti", w:160, min:550, v12:false, val:1},
     {n:"RTX 4060", w:115, min:550, v12:false, val:1}
   ]},
@@ -843,6 +843,8 @@ function compute(){
   recoW = ceilLadder(recoW);
 
   var office = (gpu.w===0);
+  /* Marta (6-oct): toda NVIDIA de RTX 4070 hacia arriba recomienda SIEMPRE una fuente con cable PCIe 5.1 nativo
+     (12V-2x6): RTX 4070/4070 Super y RTX 5070 pasan a v12:true; el resto de la gama alta ya lo era. */
   var needs12 = gpu.v12 || recoW>=1000;
 
   return {gpu:gpu,draw:draw,recoW:recoW,office:office,needs12:needs12,aesthetic:aesthetic};
